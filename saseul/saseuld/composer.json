@@ -1,0 +1,5 @@
+{
+    "require": {
+        "pear/system_daemon": "dev-master"
+    }
+}

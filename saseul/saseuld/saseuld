@@ -1,0 +1,40 @@
+#!/usr/bin/php
+<?php
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/src/Manager.php';
+
+$dir_log = __DIR__ . '/logs/';
+$dir_pid = __DIR__ . '/';
+#$app_gid = getmygid();
+#$app_uid = getmyuid();
+$app_gid = 500;
+$app_uid = 500;
+
+$options = array(
+    'appName' => 'saseuld',
+    'appDir' => __DIR__,
+    'appDescription' => 'Simple Saseul Daemon',
+    'authorName' => 'jjal',
+    'authorEmail' => 'anonymous16966@gmail.com',
+    'sysMaxExecutionTime' => '0',
+    'sysMaxInputTime' => '0',
+    'sysMemoryLimit' => '512M',
+    'appRunAsGID' => $app_gid,
+    'appRunAsUID' => $app_uid,
+    'logLocation' => $dir_log . 'saseuld.log',
+    'appPidLocation' => $dir_pid . 'saseuld.pid',
+);
+
+# Set Daemon
+System_Daemon::setOptions($options);
+System_Daemon::start();
+
+# Set Application Manager
+$manager = new \src\Manager();
+
+while (! System_Daemon::isDying()) {
+    $manager->Main();
+    System_Daemon::iterate(1);
+}
+
+System_Daemon::stop();

@@ -1,0 +1,31 @@
+[
+    {
+        "name": "pear/system_daemon",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "git@github.com:tomglue/system_daemon.git",
+            "reference": "ae868c79312093d5b5174bbe4d93bbf1e8a11466"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/tomglue/system_daemon/zipball/ae868c79312093d5b5174bbe4d93bbf1e8a11466",
+            "reference": "ae868c79312093d5b5174bbe4d93bbf1e8a11466",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2013-02-26T22:44:14+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "System/Daemon.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "description": "A port of the PEAR class to create Daemons with pure PHP"
+    }
+]
